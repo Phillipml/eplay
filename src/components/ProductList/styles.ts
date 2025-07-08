@@ -1,0 +1,25 @@
+import styled from 'styled-components'
+import type { ProductListProps } from '.'
+import { Card } from '../Product/styles'
+
+export const ProductListStyled = styled.section<Omit<ProductListProps, 'title' | 'games'>>`
+  width: 100%;
+  background-color: ${({ background, theme }) =>
+    background === 'black' ? theme.black : theme.gray};
+  padding: 32px 0;
+  ${Card} {
+    background-color: ${({ background, theme }) =>
+      background === 'black' ? theme.gray : theme.black};
+  }
+`
+export const Title = styled.h2`
+  font-size: 18px;
+  font-weight: bold;
+`
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin-top: 40px;
+`
