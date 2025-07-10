@@ -1,5 +1,6 @@
 import { MainContainer } from '@/styles/global'
 import { Container, FooterSection, Link, Links, SectionTitle } from './styles'
+import Logo from '../Logo'
 
 const currentYear = new Date().getFullYear()
 

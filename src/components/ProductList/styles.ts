@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import type { ProductListProps } from '.'
 import { Card } from '../Product/styles'
 
-export const ProductListStyled = styled.section<Omit<ProductListProps, 'title' | 'games'>>`
+export const ProductListStyled = styled.section<{ $background: 'black' | 'gray' }>`
   width: 100%;
-  background-color: ${({ background, theme }) =>
-    background === 'black' ? theme.black : theme.gray};
+  background-color: ${({ $background, theme }) =>
+    $background === 'black' ? theme.black : theme.gray};
   padding: 32px 0;
   ${Card} {
-    background-color: ${({ background, theme }) =>
-      background === 'black' ? theme.gray : theme.black};
+    background-color: ${({ $background, theme }) =>
+      $background === 'black' ? theme.gray : theme.black};
   }
 `
 export const Title = styled.h2`

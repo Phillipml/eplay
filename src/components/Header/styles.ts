@@ -32,7 +32,6 @@ export const LinkCart = styled.a`
 
   svg {
     display: flex;
-
     margin-left: 16px;
   }
 `

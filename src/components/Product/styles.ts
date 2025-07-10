@@ -5,17 +5,22 @@ type CardProps = {
   background: 'black' | 'gray'
 }
 
-export const Card = styled.div<CardProps>`
-  background-color: ${({ background, theme }) =>
-    background === 'black' ? theme.black : theme.gray};
+export const Card = styled.div<{ $background: 'black' | 'gray' }>`
+  background-color: ${({ $background, theme }) =>
+    $background === 'black' ? theme.black : theme.gray};
   border-radius: 8px;
   padding: 8px;
   position: relative;
+  display: block;
+  > a {
+    text-decoration: none;
+  }
 
   img {
+    display: block;
     width: 100%;
     height: 250px;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   ${TagStyled} {

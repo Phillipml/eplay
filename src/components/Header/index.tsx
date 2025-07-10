@@ -1,5 +1,5 @@
 import { FaCartShopping } from 'react-icons/fa6'
-import { EplayLogo } from '../Logo/logo'
+import Logo from '../Logo'
 import { HeaderBar, LinkCart, LinkItem, Links } from './styles'
 import { Link } from 'react-router-dom'
 
@@ -7,7 +7,7 @@ const Header = () => (
   <HeaderBar>
     <div>
       <Link to="/">
-        <EplayLogo />
+        <Logo />
       </Link>
       <nav>
         <Links>

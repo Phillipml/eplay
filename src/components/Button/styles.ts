@@ -1,20 +1,24 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import type { ButtonProps } from '.'
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<ButtonProps>`
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  background-color: transparent;
-  border: 2px solid ${({ theme }) => theme.white};
+
+  background-color: ${({ variant, theme }) =>
+    variant === 'primary' ? theme.green : 'transparent'};
+  border: 2px solid ${({ variant, theme }) => (variant === 'primary' ? theme.green : theme.white)};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.black};
+    background-color: ${({ variant, theme }) =>
+      variant === 'primary' ? 'transparent' : theme.white};
+    color: ${({ variant, theme }) => (variant === 'primary' ? theme.white : theme.black)};
   }
 `
 export const ButtonLink = styled(Link)`

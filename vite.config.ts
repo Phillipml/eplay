@@ -3,17 +3,17 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr({
+      svgrOptions: {
+        icon: true
+      }
+    })
+  ],
   resolve: {
     alias: {
-      '@': '/src',
-      '@assets': '/src/assets',
-      '@components': '/src/components',
-      '@styles': '/src/styles',
-      '@pages': '/src/pages'
+      '@': '/src'
     }
-  },
-  optimizeDeps: {
-    include: ['styled-components']
   }
 })
