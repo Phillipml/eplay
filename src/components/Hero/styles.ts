@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { TagStyled } from '../Tag/styles'
+import { breakpoints } from '@/styles/global'
 
 export const Banner = styled.div`
   display: block;
@@ -8,14 +9,18 @@ export const Banner = styled.div`
   width: 100%;
   height: 480px;
   padding-top: 16px;
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
   background-position: center;
+  @media (max-width: ${breakpoints.smScreen}) {
+    background-size: cover;
+  }
 
   &::after {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #000;
+    background-color: ${({ theme }) => theme.secondary};
     width: 100%;
     height: 100%;
     content: '';
@@ -37,7 +42,7 @@ export const Banner = styled.div`
 export const Infos = styled.div`
   padding: 16px;
   max-width: 290px;
-  background-color: ${({ theme }) => theme.black};
+  background-color: ${({ theme }) => theme.secondary};
   font-weight: bold;
   font-size: 18px;
   h2 {

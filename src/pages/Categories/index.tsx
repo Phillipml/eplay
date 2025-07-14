@@ -1,48 +1,81 @@
 import ProductList from '@/components/ProductList'
-import { useState } from 'react'
-import type { Game } from '@/types/game'
-import { useEffect } from 'react'
+import {
+  useGetActionGamesQuery,
+  useGetSportsGamesQuery,
+  useGetSimulationGamesQuery,
+  useGetFightingGamesQuery,
+  useGetRpgGamesQuery
+} from '@/services/api'
 
 const Categories = () => {
-  const [action, setAction] = useState<Game[]>([])
-  const [sports, setSports] = useState<Game[]>([])
-  const [simulation, setSimulation] = useState<Game[]>([])
-  const [fighting, setFighting] = useState<Game[]>([])
-  const [rpg, setRpg] = useState<Game[]>([])
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/acao')
-      .then((res) => res.json())
-      .then((res) => {
-        setAction(res)
-      })
-    fetch('https://fake-api-tau.vercel.app/api/eplay/esportes')
-      .then((res) => res.json())
-      .then((res) => {
-        setSports(res)
-      })
-    fetch('https://fake-api-tau.vercel.app/api/eplay/simulacao')
-      .then((res) => res.json())
-      .then((res) => {
-        setSimulation(res)
-      })
-    fetch('https://fake-api-tau.vercel.app/api/eplay/luta')
-      .then((res) => res.json())
-      .then((res) => {
-        setFighting(res)
-      })
-    fetch('https://fake-api-tau.vercel.app/api/eplay/rpg')
-      .then((res) => res.json())
-      .then((res) => {
-        setRpg(res)
-      })
-  }, [])
+  const actionGames = useGetActionGamesQuery()
+  const sportsGames = useGetSportsGamesQuery()
+  const simulationGames = useGetSimulationGamesQuery()
+  const fightingGames = useGetFightingGamesQuery()
+  const rpgGames = useGetRpgGamesQuery()
+
+  const categories = [
+    {
+      data: actionGames.data,
+      isLoading: actionGames.isLoading,
+      error: actionGames.error,
+      bg: 'black' as const,
+      title: 'Ação',
+      id: 'action'
+    },
+    {
+      data: sportsGames.data,
+      isLoading: sportsGames.isLoading,
+      error: sportsGames.error,
+      bg: 'gray' as const,
+      title: 'Esportes',
+      id: 'sports'
+    },
+    {
+      data: simulationGames.data,
+      isLoading: simulationGames.isLoading,
+      error: simulationGames.error,
+      bg: 'gray' as const,
+      title: 'Simulação',
+      id: 'simulation'
+    },
+    {
+      data: fightingGames.data,
+      isLoading: fightingGames.isLoading,
+      error: fightingGames.error,
+      bg: 'gray' as const,
+      title: 'Luta',
+      id: 'fight'
+    },
+    {
+      data: rpgGames.data,
+      isLoading: rpgGames.isLoading,
+      error: rpgGames.error,
+      bg: 'gray' as const,
+      title: 'RPG',
+      id: 'rpg'
+    }
+  ]
+  const isLoading = categories.some((cat) => cat.isLoading)
+  const hasError = categories.some((cat) => cat.error)
+  if (isLoading) {
+    return <h4>Carregando...</h4>
+  }
+
+  if (hasError) {
+    return <h4>Erro ao carregar categorias</h4>
+  }
   return (
     <>
-      <ProductList games={action} background="black" title="Ação" />
-      <ProductList games={sports} background="gray" title="Esportes" />
-      <ProductList games={simulation} background="gray" title="Simulação" />
-      <ProductList games={fighting} background="gray" title="Luta" />
-      <ProductList games={rpg} background="gray" title="RPG" />
+      {categories.map((category) => (
+        <ProductList
+          key={category.title}
+          games={category.data || []}
+          background={category.bg}
+          title={category.title}
+          id={category.id}
+        />
+      ))}
     </>
   )
 }

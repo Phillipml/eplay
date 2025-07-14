@@ -5,11 +5,11 @@ import type { SectionProps } from '.'
 export const ProductListStyled = styled.section<SectionProps>`
   width: 100%;
   background-color: ${({ background, theme }) =>
-    background === 'black' ? theme.black : theme.gray};
+    background === 'black' ? theme.secondary : theme.tertiary};
   padding: 32px 0;
   ${Card} {
     background-color: ${({ background, theme }) =>
-      background === 'black' ? theme.gray : theme.black};
+      background === 'black' ? theme.tertiary : theme.secondary};
   }
   p {
     font-size: 14px;

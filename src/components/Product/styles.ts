@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 import { TagStyled } from '@/components/Tag/styles'
 
-type CardProps = {
-  background: 'black' | 'gray'
-}
-
 export const Card = styled.div<{ $background: 'black' | 'gray' }>`
   background-color: ${({ $background, theme }) =>
-    $background === 'black' ? theme.black : theme.gray};
+    $background === 'black' ? theme.primary : theme.secondary};
   border-radius: 8px;
   padding: 8px;
   position: relative;
@@ -40,7 +36,8 @@ export const Title = styled.h3`
   margin-top: 16px;
   margin-bottom: 8px;
 `
-export const Description = styled.p`
+export const Description = styled.p<{ $background: 'black' | 'gray' }>`
+  color: ${({ theme }) => theme.primary};
   font-size: 14px;
   line-height: 22px;
   display: block;

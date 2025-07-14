@@ -1,26 +1,22 @@
 import { MainContainer } from '@/styles/global'
 import { Banner, Infos } from './styles'
-import { useEffect, useState } from 'react'
 import Tag from '@/components/Tag'
 import Button from '@/components/Button'
 import type { Game } from '@/types/game'
 import { priceFormatter } from '../ProductList'
+import { useDispatch } from 'react-redux'
+import { add, open } from '@/store/reducers/cart'
 
 type HeroProps = {
-  id: number
+  game: Game
 }
 
-const Hero = ({ id }: HeroProps) => {
-  const [game, setGame] = useState<Game | null>(null)
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setGame(res)
-      })
-  }, [id])
-  if (!game) return null
-
+const Hero = ({ game }: HeroProps) => {
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(game))
+    dispatch(open())
+  }
   return (
     <>
       <Banner style={{ backgroundImage: `url('${game.media.cover}')` }}>
@@ -37,7 +33,7 @@ const Hero = ({ id }: HeroProps) => {
               {game.prices.current && <>Por {priceFormatter(game.prices.current)}</>}
             </p>
             {game.prices.current ? (
-              <Button to="/product/1" title="Adicionar ao carrinho">
+              <Button to="/product/1" title="Adicionar ao carrinho" onClick={addToCart}>
                 Adicionar ao carrinho
               </Button>
             ) : (

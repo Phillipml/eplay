@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { MainContainer } from '@/styles/global'
 export const Items = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 `
 export const Action = styled.div`
   display: flex;
@@ -24,18 +26,16 @@ export const Action = styled.div`
 
 export const Item = styled.li`
   position: relative;
-  margin-right: 16px;
-
   img {
     object-fit: cover;
-    border: 2px solid ${({ theme }) => theme.white};
+    border: 2px solid ${({ theme }) => theme.primary};
     border-radius: 8px;
     width: 150px;
     height: 150px;
     cursor: pointer;
   }
   iframe {
-    border: 2px solid ${({ theme }) => theme.white};
+    border: 2px solid ${({ theme }) => theme.primary};
     border-radius: 8px;
     width: 150px;
     height: 150px;

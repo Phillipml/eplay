@@ -6,6 +6,7 @@ import type { Game } from '@/types/game'
 export type ProductListProps = {
   title?: string
   background: 'black' | 'gray'
+  id?: string
   games: Game[]
 }
 
@@ -15,7 +16,7 @@ export const priceFormatter = (price = 0) => {
     currency: 'BRL'
   }).format(price)
 }
-const ProductList = ({ title, background, games }: ProductListProps) => {
+const ProductList = ({ title, background, games, id }: ProductListProps) => {
   const getGameTags = (game: Game) => {
     const tags = []
     if (game.release_date) {
@@ -32,7 +33,7 @@ const ProductList = ({ title, background, games }: ProductListProps) => {
 
   return (
     <>
-      <ProductListStyled $background={background}>
+      <ProductListStyled id={id} $background={background}>
         <MainContainer>
           <Title>{title}</Title>
           <List>

@@ -10,15 +10,16 @@ export const ButtonStyled = styled.button<ButtonProps>`
   text-decoration: none;
 
   background-color: ${({ variant, theme }) =>
-    variant === 'primary' ? theme.green : 'transparent'};
-  border: 2px solid ${({ variant, theme }) => (variant === 'primary' ? theme.green : theme.white)};
+    variant === 'primary' ? theme.quinary : 'transparent'};
+  border: 2px solid
+    ${({ variant, theme }) => (variant === 'primary' ? theme.quaternary : theme.primary)};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
     background-color: ${({ variant, theme }) =>
-      variant === 'primary' ? 'transparent' : theme.white};
-    color: ${({ variant, theme }) => (variant === 'primary' ? theme.white : theme.black)};
+      variant === 'primary' ? 'transparent' : theme.secondary};
+    color: ${({ variant, theme }) => (variant === 'primary' ? theme.primary : theme.secondary)};
   }
 `
 export const ButtonLink = styled(Link)`
@@ -28,12 +29,12 @@ export const ButtonLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   background-color: transparent;
-  border: 2px solid ${({ theme }) => theme.white};
+  border: 2px solid ${({ theme }) => (theme.primary === '#111' ? theme.secondary : theme.primary)};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.black};
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondary};
   }
 `

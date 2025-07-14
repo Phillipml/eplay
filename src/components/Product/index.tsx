@@ -39,7 +39,7 @@ const Product = ({
         </Infos>
         <Tag>{category}</Tag>
         <Tag>{system}</Tag>
-        <Description>{getDescription(description)}</Description>
+        <Description $background={background}>{getDescription(description)}</Description>
       </Link>
     </Card>
   )

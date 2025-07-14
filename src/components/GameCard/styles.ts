@@ -6,7 +6,7 @@ type CardProps = {
 
 export const Card = styled.div<CardProps>`
   background-color: ${({ background, theme }) =>
-    background === 'black' ? theme.black : theme.gray};
+    background === 'black' ? theme.secondary : theme.tertiary};
   border-radius: 8px;
   padding: 8px;
   position: relative;
@@ -28,7 +28,7 @@ export const Title = styled.h3`
   font-size: 1.2rem;
   font-weight: bold;
   margin: 8px 0;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.primary};
 `
 
 export const PriceInfo = styled.div`
@@ -39,12 +39,12 @@ export const PriceInfo = styled.div`
 
   .old-price {
     text-decoration: line-through;
-    color: ${({ theme }) => theme.gray};
+    color: ${({ theme }) => theme.tertiary};
     font-size: 0.9rem;
   }
 
   .current-price {
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.primary};
     font-weight: bold;
     font-size: 1.1rem;
   }
@@ -55,7 +55,7 @@ export const DiscountBadge = styled.div`
   top: 8px;
   right: 8px;
   background-color: #e66767;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.primary};
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -71,7 +71,7 @@ export const Infos = styled.div`
 `
 
 export const Description = styled.p`
-  color: ${({ theme }) => theme.gray};
+  color: ${({ theme }) => theme.tertiary};
   font-size: 0.9rem;
   line-height: 1.4;
   margin-top: 8px;

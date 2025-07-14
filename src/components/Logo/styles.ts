@@ -5,6 +5,6 @@ export const EplayLogo = styled(LogoSvg)`
   width: 40px;
   height: auto;
   path {
-    fill: ${({ theme }) => theme.white};
+    fill: ${({ theme }) => theme.primary};
   }
 `

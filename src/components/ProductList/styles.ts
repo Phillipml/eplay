@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import type { ProductListProps } from '.'
 import { Card } from '../Product/styles'
+import { breakpoints } from '@/styles/global'
 
 export const ProductListStyled = styled.section<{ $background: 'black' | 'gray' }>`
   width: 100%;
   background-color: ${({ $background, theme }) =>
-    $background === 'black' ? theme.black : theme.gray};
+    $background === 'black' ? theme.secondary : theme.tertiary};
   padding: 32px 0;
   ${Card} {
     background-color: ${({ $background, theme }) =>
-      $background === 'black' ? theme.gray : theme.black};
+      $background === 'black' ? theme.tertiary : theme.secondary};
   }
 `
 export const Title = styled.h2`
@@ -22,4 +22,7 @@ export const List = styled.ul`
   gap: 16px;
   list-style: none;
   margin-top: 40px;
+  @media (max-width: ${breakpoints.smScreen}) {
+    grid-template-columns: 1fr;
+  }
 `

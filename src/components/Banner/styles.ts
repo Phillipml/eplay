@@ -6,7 +6,7 @@ export const Image = styled.div`
   display: block;
   width: 100%;
   height: 560px;
-  background-size: 110%;
+  background-size: cover;
   background-position: 100% 35%;
   background-repeat: no-repeat;
   font-weight: bold;
@@ -31,17 +31,21 @@ export const Image = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: ${({ theme }) =>
+      theme.primary === '#111' ? theme.secondary : theme.tertiary};
+    opacity: 0.7;
   }
 `
 export const Title = styled.h2`
   font-size: 36px;
   max-width: 450px;
+  color: ${({ theme }) => theme.primary};
 `
 export const Prices = styled.p`
   font-size: 24px;
   max-width: 450px;
   margin-top: 24px;
+  color: ${({ theme }) => theme.primary};
   span {
     text-decoration: line-through;
   }

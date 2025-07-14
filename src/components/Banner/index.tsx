@@ -1,27 +1,26 @@
 import { MainContainer } from '@/styles/global'
 import { Image, Prices, Title } from './styles'
 import Tag from '../Tag'
-import Button from '../Button'
-import { useEffect, useState } from 'react'
-import type { Game } from '@/types/game'
+import { useGetFeaturedGameQuery } from '@/services/api'
 import { priceFormatter } from '../ProductList'
+import { ButtonLink } from '../Button/styles'
 
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      .then((res) => {
-        setGame(res)
-      })
-  }, [])
-  if (!game) {
+  const { data: game, isLoading, error } = useGetFeaturedGameQuery()
+  if (isLoading) {
     return <h1>Carregando...</h1>
   }
 
+  if (error) {
+    return <h1>Erro ao carregar</h1>
+  }
+
+  if (!game) {
+    return <h1>Nenhum jogo encontrado</h1>
+  }
+
   return (
-    <Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
+    <Image style={{ backgroundImage: `url(${game.media.cover})` }}>
       <MainContainer>
         <Tag size="big">Destaque do dia</Tag>
         <div>
@@ -32,9 +31,9 @@ const Banner = () => {
             Por {priceFormatter(game.prices.current)}
           </Prices>
         </div>
-        <Button type="link" to="/" title="Clique aqui para aproveitar essa oferta">
+        <ButtonLink to={`/product/${game.id}`} title="Clique aqui para aproveitar essa oferta">
           Aproveitar
-        </Button>
+        </ButtonLink>
       </MainContainer>
     </Image>
   )
