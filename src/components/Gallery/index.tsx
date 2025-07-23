@@ -1,13 +1,11 @@
 import Section from '../Section'
 import { useState } from 'react'
-import { Action, Item, Items, Modal, ModalContainer, Overlay } from './styles'
+import * as S from './styles'
 import { FaPlayCircle, FaSearchPlus } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
-import type { GalleryItem } from '@/types/game'
 
 type GalleryProps = {
   defaultCover: string | undefined
-  id: number
   name: string
   items: GalleryItem[]
 }
@@ -19,7 +17,7 @@ type ModalState = {
   videoId: string
 }
 
-const Gallery = ({ defaultCover, id, name, items }: GalleryProps) => {
+const Gallery = ({ defaultCover, name, items }: GalleryProps) => {
   const [modal, setModal] = useState<ModalState>({
     visible: false,
     image: '',
@@ -47,11 +45,11 @@ const Gallery = ({ defaultCover, id, name, items }: GalleryProps) => {
 
   return (
     <>
-      <Section title="Galeria" background="black">
-        <Items>
+      <Section title="Galeria" $background="black">
+        <S.Items>
           {items.length > 0 ? (
             items.map((item, index: number) => (
-              <Item
+              <S.Item
                 key={`${item.type}-${index}`}
                 onClick={() => {
                   if (item.type === 'video') {
@@ -66,25 +64,25 @@ const Gallery = ({ defaultCover, id, name, items }: GalleryProps) => {
                 ) : (
                   <img src={item.url} alt={name + ' image'} />
                 )}
-                <Action>{item.type === 'video' ? <FaPlayCircle /> : <FaSearchPlus />}</Action>
-              </Item>
+                <S.Action>{item.type === 'video' ? <FaPlayCircle /> : <FaSearchPlus />}</S.Action>
+              </S.Item>
             ))
           ) : (
-            <Item>
+            <S.Item>
               <img src={defaultCover} alt={name + ' image'} />
-              <Action
+              <S.Action
                 onClick={() => {
                   openModal(defaultCover || '')
                 }}
               >
                 <FaSearchPlus />
-              </Action>
-            </Item>
+              </S.Action>
+            </S.Item>
           )}
-        </Items>
+        </S.Items>
       </Section>
-      <Modal className={modal.visible ? 'visible' : ''}>
-        <ModalContainer>
+      <S.Modal className={modal.visible ? 'is-visible' : ''}>
+        <S.ModalContainer>
           <header>
             <h4>{name}</h4>
             <IoMdClose onClick={closeModal} />
@@ -97,9 +95,9 @@ const Gallery = ({ defaultCover, id, name, items }: GalleryProps) => {
           ) : (
             <img src={modal.image} alt={name + ' modalImage'} />
           )}
-        </ModalContainer>
-        <Overlay onClick={closeModal} />
-      </Modal>
+        </S.ModalContainer>
+        <S.Overlay onClick={closeModal} />
+      </S.Modal>
     </>
   )
 }

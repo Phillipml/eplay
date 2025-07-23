@@ -9,17 +9,23 @@ export const ButtonStyled = styled.button<ButtonProps>`
   font-weight: bold;
   text-decoration: none;
 
-  background-color: ${({ variant, theme }) =>
-    variant === 'primary' ? theme.quinary : 'transparent'};
+  background-color: ${({ $variant, theme }) =>
+    $variant === 'primary' ? theme.quinary : 'transparent'};
   border: 2px solid
-    ${({ variant, theme }) => (variant === 'primary' ? theme.quaternary : theme.primary)};
+    ${({ $variant, theme }) => ($variant === 'primary' ? theme.quaternary : theme.primary)};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
-    background-color: ${({ variant, theme }) =>
-      variant === 'primary' ? 'transparent' : theme.secondary};
-    color: ${({ variant, theme }) => (variant === 'primary' ? theme.primary : theme.secondary)};
+    background-color: ${({ $variant, theme }) =>
+      $variant === 'primary' ? 'transparent' : theme.secondary};
+  }
+  &.disable-hover {
+    background-color: ${({ $variant, theme }) =>
+      $variant === 'primary' ? theme.quinary : 'transparent'};
+  }
+  &:hover {
+    background-color: '';
   }
 `
 export const ButtonLink = styled(Link)`

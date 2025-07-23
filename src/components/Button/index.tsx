@@ -1,12 +1,14 @@
-import { ButtonStyled, ButtonLink } from './styles'
+import * as S from './styles'
 
 export type ButtonProps = {
-  children: string
-  type?: 'button' | 'link'
+  children: string | React.ReactNode
+  type?: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
-  variant?: 'primary' | 'secondary'
+  $variant?: 'primary' | 'secondary'
+  hover?: boolean
+  $disabled?: boolean
 }
 
 const Button = ({
@@ -15,19 +17,28 @@ const Button = ({
   title,
   to,
   onClick,
-  variant = 'primary'
+  $variant = 'primary',
+  hover = true,
+  $disabled = false
 }: ButtonProps) => {
   if (type === 'button') {
     return (
-      <ButtonStyled type="button" title={title} onClick={onClick} variant={variant}>
+      <S.ButtonStyled
+        type={type}
+        title={title}
+        onClick={onClick}
+        $variant={$variant}
+        className={!hover ? 'disable-hover' : ''}
+        disabled={$disabled}
+      >
         {children}
-      </ButtonStyled>
+      </S.ButtonStyled>
     )
   }
   return (
-    <ButtonLink title={title} to={to as string}>
+    <S.ButtonLink title={title} to={to as string}>
       {children}
-    </ButtonLink>
+    </S.ButtonLink>
   )
 }
 

@@ -1,4 +1,4 @@
-export type Game = {
+declare type Game = {
   id: number
   name: string
   description: string
@@ -21,7 +21,7 @@ export type Game = {
     gallery: GalleryItem[]
   }
 }
-export type GalleryItem = {
+declare type GalleryItem = {
   type: 'image' | 'video'
   url: string
 }

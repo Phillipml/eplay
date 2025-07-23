@@ -58,9 +58,6 @@ const Categories = () => {
   ]
   const isLoading = categories.some((cat) => cat.isLoading)
   const hasError = categories.some((cat) => cat.error)
-  if (isLoading) {
-    return <h4>Carregando...</h4>
-  }
 
   if (hasError) {
     return <h4>Erro ao carregar categorias</h4>
@@ -74,6 +71,7 @@ const Categories = () => {
           background={category.bg}
           title={category.title}
           id={category.id}
+          isLoading={isLoading}
         />
       ))}
     </>

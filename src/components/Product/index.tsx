@@ -1,5 +1,5 @@
 import Tag from '@/components/Tag'
-import { Card, Description, Infos, Title } from './styles'
+import * as S from './styles'
 import { Link } from 'react-router-dom'
 export type CardProps = {
   background: 'black' | 'gray'
@@ -21,27 +21,27 @@ const Product = ({
   image,
   id
 }: CardProps) => {
-  const getDescription = (description: string) => {
-    if (description.length > 95) {
-      return description.slice(0, 92) + '...'
+  const getDescription = (text: string) => {
+    if (text.length > 95) {
+      return text.slice(0, 92) + '...'
     }
-    return description
+    return text
   }
   return (
-    <Card $background={background}>
+    <S.Card $background={background} title={`Clique aqui para ver mais detalhes do jogo: ${title}`}>
       <Link to={`/product/${id}`}>
         <img src={image} alt={title} />
-        <Title>{title}</Title>
-        <Infos>
+        <S.Title>{title}</S.Title>
+        <S.Infos>
           {infos?.map((info) => (
             <Tag key={info}>{getDescription(info)}</Tag>
           ))}
-        </Infos>
+        </S.Infos>
         <Tag>{category}</Tag>
         <Tag>{system}</Tag>
-        <Description $background={background}>{getDescription(description)}</Description>
+        <S.Description $background={background}>{getDescription(description)}</S.Description>
       </Link>
-    </Card>
+    </S.Card>
   )
 }
 

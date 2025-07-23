@@ -4,12 +4,12 @@ import type { SectionProps } from '.'
 
 export const ProductListStyled = styled.section<SectionProps>`
   width: 100%;
-  background-color: ${({ background, theme }) =>
-    background === 'black' ? theme.secondary : theme.tertiary};
+  background-color: ${({ $background, theme }) =>
+    $background === 'black' ? theme.secondary : theme.tertiary};
   padding: 32px 0;
   ${Card} {
-    background-color: ${({ background, theme }) =>
-      background === 'black' ? theme.tertiary : theme.secondary};
+    background-color: ${({ $background, theme }) =>
+      $background === 'black' ? theme.tertiary : theme.secondary};
   }
   p {
     font-size: 14px;

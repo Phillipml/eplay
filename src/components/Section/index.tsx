@@ -1,20 +1,20 @@
 import { MainContainer } from '@/styles/global'
-import { ProductListStyled, Title } from './styles'
+import * as S from './styles'
 
 export type SectionProps = {
   title?: string
-  background?: 'black' | 'gray'
+  $background?: 'black' | 'gray'
   children: React.ReactNode
 }
 
-const Section = ({ title, background, children }: SectionProps) => {
+const Section = ({ title, $background, children }: SectionProps) => {
   return (
-    <ProductListStyled background={background}>
+    <S.ProductListStyled $background={$background}>
       <MainContainer>
-        <Title>{title}</Title>
+        <S.Title>{title}</S.Title>
         {children}
       </MainContainer>
-    </ProductListStyled>
+    </S.ProductListStyled>
   )
 }
 

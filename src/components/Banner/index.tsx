@@ -1,14 +1,15 @@
 import { MainContainer } from '@/styles/global'
-import { Image, Prices, Title } from './styles'
+import * as S from './styles'
 import Tag from '../Tag'
 import { useGetFeaturedGameQuery } from '@/services/api'
-import { priceFormatter } from '../ProductList'
+import { priceFormatter } from '@/utils'
 import { ButtonLink } from '../Button/styles'
+import Loader from '../Loader'
 
 const Banner = () => {
   const { data: game, isLoading, error } = useGetFeaturedGameQuery()
   if (isLoading) {
-    return <h1>Carregando...</h1>
+    return <Loader />
   }
 
   if (error) {
@@ -20,22 +21,22 @@ const Banner = () => {
   }
 
   return (
-    <Image style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <S.Image style={{ backgroundImage: `url(${game.media.cover})` }}>
       <MainContainer>
         <Tag size="big">Destaque do dia</Tag>
         <div>
-          <Title>{game.name}</Title>
-          <Prices>
+          <S.Title>{game.name}</S.Title>
+          <S.Prices>
             De <span>{priceFormatter(game.prices.old)}</span>
             <br />
             Por {priceFormatter(game.prices.current)}
-          </Prices>
+          </S.Prices>
         </div>
         <ButtonLink to={`/product/${game.id}`} title="Clique aqui para aproveitar essa oferta">
           Aproveitar
         </ButtonLink>
       </MainContainer>
-    </Image>
+    </S.Image>
   )
 }
 

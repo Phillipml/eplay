@@ -1,9 +1,8 @@
 import { MainContainer } from '@/styles/global'
-import { Banner, Infos } from './styles'
+import * as S from './styles'
 import Tag from '@/components/Tag'
 import Button from '@/components/Button'
-import type { Game } from '@/types/game'
-import { priceFormatter } from '../ProductList'
+import { priceFormatter } from '@/utils'
 import { useDispatch } from 'react-redux'
 import { add, open } from '@/store/reducers/cart'
 
@@ -19,13 +18,13 @@ const Hero = ({ game }: HeroProps) => {
   }
   return (
     <>
-      <Banner style={{ backgroundImage: `url('${game.media.cover}')` }}>
+      <S.Banner style={{ backgroundImage: `url('${game.media.cover}')` }}>
         <MainContainer>
           <div>
             <Tag>{game.details.category}</Tag>
             <Tag>{game.details.system}</Tag>
           </div>
-          <Infos>
+          <S.Infos>
             <h2>{game.name}</h2>
             <p>
               {game.prices.discount && <span>De {priceFormatter(game.prices.old)}</span>}
@@ -39,9 +38,9 @@ const Hero = ({ game }: HeroProps) => {
             ) : (
               <span>Em breve</span>
             )}
-          </Infos>
+          </S.Infos>
         </MainContainer>
-      </Banner>
+      </S.Banner>
     </>
   )
 }

@@ -14,7 +14,7 @@ export const Action = styled.div`
   left: 0;
   background-color: rgba(17, 17, 17, 0.73);
   border-radius: 8px;
-  cursor: pointer;
+  cursor: zoom-in;
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -60,7 +60,7 @@ export const Modal = styled.div`
   height: 100%;
   background-color: rgba(17, 17, 17, 0.73);
   z-index: 1000;
-  &.visible {
+  &.is-visible {
     display: flex;
   }
 `
@@ -70,24 +70,26 @@ export const ModalContainer = styled(MainContainer)`
 
   header {
     display: flex;
-    width: 100%;
+    width: 80%;
     justify-content: space-between;
     margin-bottom: 24px;
+    margin: 0 auto 24px;
     h4 {
       font-size: 18;
       font-weight: bold;
     }
     svg {
-      width: 40px;
-      height: 40px;
+      width: 16px;
+      height: 16px;
       cursor: pointer;
     }
   }
   img {
     display: block;
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: contain;
+    margin: 0 auto;
   }
   iframe {
     width: 100%;

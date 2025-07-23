@@ -14,6 +14,7 @@ export const Image = styled.div`
   ${MainContainer} {
     position: relative;
     padding-top: 340px;
+    padding-left: 2%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -22,7 +23,7 @@ export const Image = styled.div`
   ${TagStyled} {
     position: absolute;
     top: 32px;
-    left: 0;
+    left: 2%;
   }
   &::after {
     content: '';

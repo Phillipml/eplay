@@ -20,12 +20,16 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     background-color: ${({ theme }) => theme.secondary};
 
+
   }
 `
 export const MainContainer = styled.div`
   max-width: ${breakpoints.lgScreen};
   width: 100%;
   margin: 0 auto;
+  @media screen and (max-width: ${breakpoints.lgScreen}) {
+    padding: 2%;
+  }
   @media screen and (max-width: ${breakpoints.smScreen}) {
     max-width: 80%;
   }
