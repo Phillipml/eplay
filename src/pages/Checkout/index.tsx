@@ -79,13 +79,13 @@ const Checkout = () => {
         .oneOf([Yup.ref('deliveryEmail')], 'Os e-mails são diferentes')
         .required('o campo é Obrigatório'),
 
-      cardOwner: Yup.string().when((values, schema) =>
+      cardOwner: Yup.string().when((_, schema) =>
         payWithCard ? schema.required('o campo é obrigatório') : schema
       ),
-      cpfCardOwner: Yup.string().when((values, schema) =>
+      cpfCardOwner: Yup.string().when((_, schema) =>
         payWithCard ? schema.required('o campo é obrigatório') : schema
       ),
-      cardDisplayName: Yup.string().when((values, schema) =>
+      cardDisplayName: Yup.string().when((_, schema) =>
         payWithCard ? schema.required('o campo é obrigatório') : schema
       ),
       cardNumber: Yup.string()
@@ -94,28 +94,28 @@ const Checkout = () => {
           const numbersOnly = value?.replace(/\s/g, '') || ''
           return numbersOnly.length === 16
         })
-        .when((values, schema) =>
+        .when((_, schema) =>
           payWithCard ? schema.required('o campo é obrigatório') : schema
         ),
       expiresMonth: Yup.string()
         .min(2, 'o campo deve conter 2 caracteres')
         .max(2, 'o campo deve conter 2 caracteres')
-        .when((values, schema) =>
+        .when((_, schema) =>
           payWithCard ? schema.required('o campo é obrigatório') : schema
         ),
       expiresYear: Yup.string()
         .min(4, 'o campo deve conter 4 caracteres')
         .max(4, 'o campo deve conter 4 caracteres')
-        .when((values, schema) =>
+        .when((_, schema) =>
           payWithCard ? schema.required('o campo é obrigatório') : schema
         ),
       cardCvv: Yup.string()
         .min(3, 'o campo deve conter 3 caracteres')
         .max(3, 'o campo deve conter 3 caracteres')
-        .when((values, schema) =>
+        .when((_, schema) =>
           payWithCard ? schema.required('o campo é obrigatório') : schema
         ),
-      installments: Yup.number().when((values, schema) =>
+      installments: Yup.number().when((_, schema) =>
         payWithCard ? schema.required('o campo é obrigatório') : schema
       )
     }),
