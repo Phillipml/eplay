@@ -5,12 +5,14 @@ Uma plataforma completa de e-commerce especializada em jogos digitais, desenvolv
 ## 📸 Screenshots
 
 ### 🌙 Tema Escuro
-![Screenshot Tema Escuro](./public/screenshotDarkTheme.png)
-*Interface do ePlay em tema escuro com catálogo de games*
+
+![Screenshot Tema Escuro](https://raw.githubusercontent.com/Phillipml/eplay/main/public/screenshotDarkTheme.png)
+_Interface do ePlay em tema escuro com catálogo de games_
 
 ### 🌞 Tema Claro
-![Screenshot Tema Claro](./public/screeenshotLightTheme.png)
-*Interface do ePlay em tema claro com sistema de checkout*
+
+![Screenshot Tema Claro](https://raw.githubusercontent.com/Phillipml/eplay/main/public/screeenshotLightTheme.png)
+_Interface do ePlay em tema claro com sistema de checkout_
 
 ## 🚀 Funcionalidades
 
@@ -46,17 +48,20 @@ Uma plataforma completa de e-commerce especializada em jogos digitais, desenvolv
 ## 🚀 Como Executar
 
 1. **Clone o repositório**
+
    ```bash
    git clone <url-do-repositorio>
    cd eplay
    ```
 
 2. **Instale as dependências**
+
    ```bash
    npm install
    ```
 
 3. **Execute o projeto em modo de desenvolvimento**
+
    ```bash
    npm run dev
    ```
@@ -115,24 +120,28 @@ src/
 ## 🎮 Funcionalidades do E-commerce
 
 ### 🎯 **Catálogo de Games**
+
 - Lista dinâmica de jogos por categoria
 - Filtros e busca avançada
 - Galeria de imagens dos produtos
 - Informações detalhadas de cada jogo
 
 ### 🛒 **Sistema de Carrinho**
+
 - Adicionar/remover jogos do carrinho
 - Cálculo automático de valores
 - Persistência do estado
 - Checkout integrado com validação
 
 ### 🎨 **Sistema de Temas**
+
 - Toggle entre tema claro/escuro
 - Persistência da preferência
 - Componentes adaptáveis
 - Design responsivo
 
 ### 📝 **Validação de Formulários**
+
 - Formik para gerenciamento de estado
 - Yup para validação de esquemas
 - Validação em tempo real
@@ -141,11 +150,13 @@ src/
 ## 🔧 Arquitetura
 
 ### **Estado Global (Redux)**
+
 - **Cart**: Gerencia itens do carrinho
 - **Persistência**: Estado mantido durante navegação
 - **Actions**: Ações para manipular o carrinho
 
 ### **Componentes**
+
 - **Header**: Navegação e logo
 - **ProductList**: Lista de produtos
 - **Cart**: Carrinho lateral
