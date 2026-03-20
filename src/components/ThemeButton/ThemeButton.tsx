@@ -10,7 +10,7 @@ const ThemeButton = ({ onClick }: ThemeButtonProps) => {
   const theme = useTheme()
   return (
     <ThemeButtonStyled onClick={onClick}>
-      {theme.secondary === '#111' ? <FaMoon /> : <FaSun />}
+      {theme.primary === '#E8E4F0' ? <FaMoon /> : <FaSun />}
     </ThemeButtonStyled>
   )
 }

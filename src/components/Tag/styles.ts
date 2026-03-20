@@ -9,5 +9,5 @@ export const TagStyled = styled.div<TagProps>`
   padding: ${({ size }) => (size === 'small' ? '4px 6px' : '8px 16px')};
   border-radius: 8px;
   margin-top: 10px;
-  color: ${({ theme }) => (theme.primary === '#111' ? theme.secondary : theme.primary)};
+  color: ${({ theme }) => (theme.primary === '#E8E4F0' ? theme.secondary : theme.primary)};
 `
