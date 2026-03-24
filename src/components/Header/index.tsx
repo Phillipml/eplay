@@ -18,14 +18,14 @@ const Header = () => {
   return (
     <S.HeaderBar>
       <S.HeaderRow>
-        <S.HamgurgerMenu onClick={() => setIsOpen(!isOpen)}>
+        <S.HamburgerMenu onClick={() => setIsOpen(!isOpen)}>
           <span></span>
           <span></span>
           <span></span>
-        </S.HamgurgerMenu>
-        <Link to="/">
+        </S.HamburgerMenu>
+        <S.LogoLink to="/">
           <Logo />
-        </Link>
+        </S.LogoLink>
 
         <S.DesktopLinks>
           <S.LinkItem>

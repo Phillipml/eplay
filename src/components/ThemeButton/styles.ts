@@ -13,8 +13,11 @@ export const ThemeButtonStyled = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => (theme.primary === '#111' ? theme.primary : theme.secondary)};
-  color: ${({ theme }) => (theme.primary === '#111' ? theme.secondary : theme.primary)};
-  border: 2px solid ${({ theme }) => (theme.primary === '#111' ? theme.secondary : theme.primary)};
+  background-color: ${({ theme }) => (theme.primary === '#E8E4F0' ? theme.secondary : theme.primary)};
+  color: ${({ theme }) => (theme.primary === '#E8E4F0' ? theme.primary : theme.secondary)};
+  border: 2px solid ${({ theme }) => theme.quaternary};
   z-index: 100;
+  * {
+    color: inherit;
+  }
 `

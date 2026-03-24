@@ -33,7 +33,7 @@ export const Image = styled.div`
     width: 100%;
     height: 100%;
     background-color: ${({ theme }) =>
-      theme.primary === '#111' ? theme.secondary : theme.tertiary};
+      theme.primary === '#E8E4F0' ? theme.secondary : theme.tertiary};
     opacity: 0.7;
   }
 `
