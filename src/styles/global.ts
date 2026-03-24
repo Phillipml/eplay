@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: ${({ theme }) => (theme.primary === '#E8E4F0' ? theme.secondary : theme.primary)};
+    color: ${({ theme }) => theme.primary};
     font-family: 'Roboto', sans-serif;
     list-style: none;
   }

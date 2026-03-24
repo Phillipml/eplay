@@ -25,7 +25,7 @@ Sistema completo de adicionar/remover itens
 ## Checkout Integrado:
 Fluxo de finalização com validação de dados
 ## Sistema de Temas:
-Toggle entre tema escuro/claro com persistência
+Toggle entre tema escuro/claro
 ## Design Responsivo:
 Otimizado para desktop, tablet e mobile
 ## Validação de Formulários:
@@ -156,7 +156,6 @@ src/
 # 🎨 **Sistema de Temas**
 
 - Toggle entre tema claro/escuro
-- Persistência da preferência
 - Componentes adaptáveis
 - Design responsivo
 

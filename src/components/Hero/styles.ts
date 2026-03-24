@@ -20,7 +20,7 @@ export const Banner = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: ${({ theme }) => theme.secondary};
+    background-color: #1A1625;
     width: 100%;
     height: 100%;
     content: '';

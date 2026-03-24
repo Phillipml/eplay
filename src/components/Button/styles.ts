@@ -35,7 +35,7 @@ export const ButtonLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   background-color: transparent;
-  border: 2px solid ${({ theme }) => (theme.primary === '#E8E4F0' ? theme.secondary : theme.primary)};
+  border: 2px solid ${({ theme }) => theme.primary};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;

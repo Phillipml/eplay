@@ -1,5 +1,15 @@
 import { breakpoints } from '@/styles/global'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+export const LogoLink = styled(Link)`
+  @media (max-width: ${breakpoints.lgScreen}) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+`
 
 export const Links = styled.ul`
   display: flex;
@@ -19,12 +29,15 @@ export const DesktopLinks = styled(Links)`
 export const MobileLinks = styled(Links)`
   display: none;
   margin-left: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
   @media (max-width: ${breakpoints.lgScreen}) {
     font-size: 14px;
     margin-top: 16px;
-  }
-  &.is-open {
-    display: block;
+    &.is-open {
+      display: block;
+    }
   }
 
   li a {
@@ -55,14 +68,8 @@ export const HeaderRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  > div {
-    display: flex;
-    align-items: center;
-    @media (max-width: ${breakpoints.lgScreen}) {
-      flex: 1;
-      justify-content: space-between;
-    }
+  @media (max-width: ${breakpoints.lgScreen}) {
+    position: relative;
   }
 `
 
@@ -81,6 +88,7 @@ export const CartButton = styled.span`
   align-items: center;
   text-decoration: none;
   font-weight: bold;
+  color: ${({ theme }) => theme.primary === '#1A1625' ? theme.primary:theme.secondary};
   background-color: ${({ theme }) => theme.quinary};
   padding: 8px 16px;
   border: 1px solid ${({ theme }) => theme.primary};
@@ -97,21 +105,28 @@ export const CartButton = styled.span`
     display: flex;
     margin-left: 16px;
   }
+  *{
+    color: ${({ theme }) => theme.primary === '#1A1625' ? theme.primary:theme.secondary};
+  }
 `
-export const HamgurgerMenu = styled.div`
+export const HamburgerMenu = styled.div`
   display: none;
-  max-width: 40px;
+  box-sizing: border-box;
+  width: 40px;
+  min-width: 40px;
+  flex-shrink: 0;
+  height: 40px;
   padding: 10px;
   border-radius: 50%;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  gap: 4px;
   cursor: pointer;
   span {
-    height: 2px;
-    margin-bottom: 4px;
     display: block;
-    width: 100%;
+    height: 2px;
+    flex-shrink: 0;
     background-color: ${({ theme }) => theme.primary};
   }
   @media (max-width: ${breakpoints.lgScreen}) {
